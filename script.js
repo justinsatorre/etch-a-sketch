@@ -8,6 +8,9 @@ function makeGrid(size) {
     if (size === '' || isNaN(size)){
         alert("Please enter a number next time.");
     }
+    else if (size >600) {
+        alert('Please choose a number less than 600.');
+    }
     else    {container.style.setProperty('--grid-size', size);
         for (c=0; c < Math.pow(size, 2); c++){
             cell = document.createElement('div');
@@ -33,7 +36,7 @@ function shake(element) {
     });
 }
 function changeSize() {
-    let newSize = prompt("What fidelity would you like to etch in?", "Please enter a numeral");
+    let newSize = prompt("What fidelity would you like to etch in?", "Please enter a numeral less than or equal to 600");
     makeGrid(newSize);
 }
 makeGrid(16);
